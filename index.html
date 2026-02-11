@@ -3,194 +3,600 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사대 18조 - 팀 소개</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>사대 18조 - 팀 포트폴리오</title>
+    <meta name="description" content="출석을 부른다면 세상도 대답한다.">
+    <meta name="keywords" content="사대 18조, 책임감, 전문성, 주체성, 예비교사">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="사대 18조">
+    <meta property="og:description" content="출석을 부른다면 세상도 대답한다.">
+    <meta property="og:image" content="IMG_0290.jpg">
+    <meta property="og:type" content="website">
+    
     <style>
+        /* ==================== CSS Variables ==================== */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-gray: #808080;
+            --color-light-gray: #E5E5E5;
+            --color-dark-gray: #333333;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Noto Sans KR', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+
+        /* ==================== Reset & Base Styles ==================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .container {
+        body {
+            font-family: var(--font-body);
+            color: var(--color-black);
+            background-color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Google Fonts Import */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        /* ==================== Navigation ==================== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--color-light-gray);
+            transition: transform 0.3s ease;
+        }
+
+        nav.hidden {
+            transform: translateY(-100%);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+            gap: var(--spacing-md);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-black);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: var(--color-black);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        /* ==================== Hero Section ==================== */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: var(--spacing-md);
+            margin-top: 0;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                var(--color-white) 0%, 
+                var(--color-light-gray) 50%, 
+                var(--color-white) 100%);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .team-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--color-black);
+            margin-bottom: var(--spacing-md);
+            animation: fadeIn 1.5s ease-out;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .team-name {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.02em;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .team-slogan {
+            font-size: 1.25rem;
+            color: var(--color-gray);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            animation: fadeInUp 1.6s ease-out;
+        }
+
+        /* ==================== Section Styles ==================== */
+        section {
+            padding: var(--spacing-xl) var(--spacing-md);
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        header {
-            text-align: center;
-            color: white;
-            padding: 40px 20px;
-            margin-bottom: 40px;
-        }
-
-        header h1 {
+        section h2 {
+            font-family: var(--font-display);
             font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            padding-bottom: var(--spacing-sm);
         }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--color-black);
         }
 
-        .team-intro {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        /* ==================== Team Values Section ==================== */
+        #values {
+            background-color: var(--color-black);
+            color: var(--color-white);
         }
 
-        .team-intro h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 2rem;
+        #values h2::after {
+            background-color: var(--color-white);
         }
 
-        .team-intro p {
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .members-grid {
+        .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .value-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+            border: 1px solid var(--color-gray);
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: var(--color-white);
+        }
+
+        .value-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-sm);
+            transition: color 0.3s ease;
+        }
+
+        .value-card:hover .value-number {
+            color: var(--color-white);
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .value-description {
+            color: var(--color-light-gray);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* ==================== Team Members Section ==================== */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
         }
 
         .member-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-light-gray);
+            transition: all 0.3s ease;
+            background-color: var(--color-white);
         }
 
         .member-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-black);
         }
 
-        .member-avatar {
-            width: 100px;
-            height: 100px;
+        .member-photo {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            font-weight: bold;
+            object-fit: cover;
+            margin: 0 auto var(--spacing-sm);
+            border: 2px solid var(--color-light-gray);
+            transition: all 0.3s ease;
         }
 
-        .member-card h3 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-            text-align: center;
+        .member-card:hover .member-photo {
+            border-color: var(--color-black);
         }
 
-        .member-card .role {
-            color: #667eea;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 15px;
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
         }
 
-        .member-card p {
-            color: #666;
+        .member-description {
+            font-size: 0.9rem;
+            color: var(--color-gray);
             line-height: 1.6;
-            text-align: center;
+            font-weight: 300;
         }
 
+        /* ==================== Guestbook Section ==================== */
+        #guestbook {
+            background-color: #f8f8f8;
+        }
+
+        .guestbook-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+        }
+
+        /* ==================== Footer ==================== */
         footer {
+            background-color: var(--color-black);
+            color: var(--color-white);
             text-align: center;
-            color: white;
-            padding: 30px;
-            margin-top: 40px;
+            padding: var(--spacing-lg) var(--spacing-md);
+            font-size: 0.9rem;
         }
 
-        footer p {
-            opacity: 0.8;
+        footer a {
+            color: var(--color-white);
+            text-decoration: none;
+            border-bottom: 1px solid var(--color-gray);
+            transition: border-color 0.3s ease;
         }
 
+        footer a:hover {
+            border-bottom-color: var(--color-white);
+        }
+
+        /* ==================== Animations ==================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* ==================== Responsive Design ==================== */
         @media (max-width: 768px) {
-            header h1 {
+            .team-name {
+                font-size: 2.5rem;
+            }
+
+            .team-slogan {
+                font-size: 1rem;
+            }
+
+            section h2 {
                 font-size: 2rem;
             }
 
-            .team-intro {
-                padding: 25px;
+            .team-photo {
+                width: 200px;
+                height: 200px;
             }
 
+            nav ul {
+                flex-wrap: wrap;
+                gap: var(--spacing-sm);
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
+
+            .values-grid,
             .members-grid {
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (max-width: 480px) {
+            :root {
+                --spacing-lg: 2rem;
+                --spacing-xl: 3rem;
+            }
+
+            .team-name {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: var(--spacing-lg) var(--spacing-sm);
+            }
+        }
+
+        /* ==================== Scroll Reveal ==================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎓 사대 18조</h1>
-            <p>함께 성장하는 우리 팀을 소개합니다</p>
-        </header>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#values">Values</a></li>
+            <li><a href="#members">Members</a></li>
+            <li><a href="#guestbook">Guestbook</a></li>
+        </ul>
+    </nav>
 
-        <div class="team-intro">
-            <h2>팀 소개</h2>
-            <p>
-                안녕하세요! 저희는 사대 18조입니다. 
-                각자의 강점을 살려 협력하며, 함께 배우고 성장하는 것을 목표로 하고 있습니다. 
-                열정과 창의성을 바탕으로 다양한 프로젝트에 도전하며, 
-                서로를 응원하고 격려하는 팀워크를 자랑합니다.
-            </p>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <img src="IMG_0290.jpg" alt="사대 18조 팀 사진" class="team-photo">
+            <h1 class="team-name">사대 18조</h1>
+            <p class="team-slogan">출석을 부른다면 세상도 대답한다.</p>
         </div>
+    </section>
 
+    <!-- Team Values Section -->
+    <section id="values">
+        <h2>Team Values</h2>
+        <div class="values-grid">
+            <div class="value-card reveal">
+                <div class="value-number">01</div>
+                <h3 class="value-title">책임감</h3>
+                <p class="value-description">예비교사라는 책임감을 가지고 미래 나의 학생들을 위해 공부.</p>
+            </div>
+            <div class="value-card reveal">
+                <div class="value-number">02</div>
+                <h3 class="value-title">전문성</h3>
+                <p class="value-description">전공분야의 깊은 이해와 실천 능력 갖추기</p>
+            </div>
+            <div class="value-card reveal">
+                <div class="value-number">03</div>
+                <h3 class="value-title">주체성</h3>
+                <p class="value-description">어떤 교사가 되고 싶은지 스스로 방향을 정하는 학생</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members Section -->
+    <section id="members">
+        <h2>Team Members</h2>
         <div class="members-grid">
-            <div class="member-card">
-                <div class="member-avatar">1</div>
-                <h3>팀원 1</h3>
-                <div class="role">팀장</div>
-                <p>팀을 이끌며 모두가 함께 성장할 수 있도록 노력합니다.</p>
+            <div class="member-card reveal">
+                <img src="20260207_112427.jpg" alt="심규원" class="member-photo">
+                <h3 class="member-name">심규원</h3>
+                <p class="member-description">국어교육과/ 문학을 좋아하는 사람입니다. 축구보는 것도 좋아합니다. 자기 일에 최선을 다하는 사람이 되고 싶습니다!</p>
             </div>
-
-            <div class="member-card">
-                <div class="member-avatar">2</div>
-                <h3>팀원 2</h3>
-                <div class="role">부팀장</div>
-                <p>팀의 화합을 도모하고 프로젝트 진행을 돕습니다.</p>
+            <div class="member-card reveal">
+                <img src="2026_02_03 17_29(2).jpg" alt="정윤서" class="member-photo">
+                <h3 class="member-name">정윤서</h3>
+                <p class="member-description">국어교육과/ 언제나 계획적인 사람입니다🫡</p>
             </div>
-
-            <div class="member-card">
-                <div class="member-avatar">3</div>
-                <h3>팀원 3</h3>
-                <div class="role">팀원</div>
-                <p>창의적인 아이디어로 팀에 활력을 불어넣습니다.</p>
+            <div class="member-card reveal">
+                <img src="IMG_9865.jpeg" alt="김시윤" class="member-photo">
+                <h3 class="member-name">김시윤</h3>
+                <p class="member-description">국어교육학과 / 저는 사람을 먼저 이해하려는 태도로 배움이 일어나는 관계를 만들어내는 강점을 가지고 있습니다.</p>
             </div>
-
-            <div class="member-card">
-                <div class="member-avatar">4</div>
-                <h3>팀원 4</h3>
-                <div class="role">팀원</div>
-                <p>꼼꼼한 분석과 실행력으로 프로젝트를 완성합니다.</p>
+            <div class="member-card reveal">
+                <img src="IMG_6258.jpeg" alt="전혜민" class="member-photo">
+                <h3 class="member-name">전혜민</h3>
+                <p class="member-description">수학교육과/ 26학번 화이팅 ｡｡｡</p>
+            </div>
+            <div class="member-card reveal">
+                <img src="IMG_9319.jpeg" alt="김예린" class="member-photo">
+                <h3 class="member-name">김예린</h3>
+                <p class="member-description">영어교육과 / 많은 분들과 친해지고 싶어요</p>
+            </div>
+            <div class="member-card reveal">
+                <img src="IMG_0821.jpeg" alt="정윤원" class="member-photo">
+                <h3 class="member-name">정윤원</h3>
+                <p class="member-description">수학교육과/멋진 수학교사가 되겠습니다!</p>
+            </div>
+            <div class="member-card reveal">
+                <img src="IMG_1953.jpeg" alt="김도안" class="member-photo">
+                <h3 class="member-name">김도안</h3>
+                <p class="member-description">영어교육과/ 다 같이 친하게 지냈으면 좋겠습니다 26학번 화이팅!</p>
+            </div>
+            <div class="member-card reveal">
+                <img src="IMG_8280.jpeg" alt="김동준" class="member-photo">
+                <h3 class="member-name">김동준</h3>
+                <p class="member-description">국어교육과/활발하고 유한 성격을 가지고 있습니다!</p>
             </div>
         </div>
+    </section>
 
-        <footer>
-            <p>&copy; 2025 사대 18조. All rights reserved.</p>
-        </footer>
-    </div>
+    <!-- Guestbook Section -->
+    <section id="guestbook">
+        <h2>Guestbook</h2>
+        <div class="guestbook-container">
+            <!-- Guestbook -->
+            <script src="https://utteranc.es/client.js"
+                    repo="aitrizkr/aiws_sm2026"
+                    issue-term="pathname"
+                    label="방명록"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 사대 18조. Powered by <a href="https://ai.triz.kr" target="_blank" rel="noopener noreferrer">AI Portfolio Workshop</a>.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ==================== Scroll Reveal Animation ====================
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        
+        // Initial check for elements already in view
+        reveal();
+
+        // ==================== Navbar Hide on Scroll ====================
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                navbar.classList.add('hidden');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('hidden');
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+
+        // ==================== Smooth Scroll for Navigation ====================
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 60; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ==================== Image Error Handling ====================
+        // Placeholder for missing images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200"%3E%3Crect width="200" height="200" fill="%23E5E5E5"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="14" fill="%23808080"%3EImage%3C/text%3E%3C/svg%3E';
+            });
+        });
+    </script>
 </body>
 </html>
