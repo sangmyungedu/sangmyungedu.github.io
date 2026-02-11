@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사대 18조 - 팀 소개</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .team-intro {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .team-intro h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .team-intro p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .member-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .member-card .role {
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .member-card p {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .team-intro {
+                padding: 25px;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 사대 18조</h1>
+            <p>함께 성장하는 우리 팀을 소개합니다</p>
+        </header>
+
+        <div class="team-intro">
+            <h2>팀 소개</h2>
+            <p>
+                안녕하세요! 저희는 사대 18조입니다. 
+                각자의 강점을 살려 협력하며, 함께 배우고 성장하는 것을 목표로 하고 있습니다. 
+                열정과 창의성을 바탕으로 다양한 프로젝트에 도전하며, 
+                서로를 응원하고 격려하는 팀워크를 자랑합니다.
+            </p>
+        </div>
+
+        <div class="members-grid">
+            <div class="member-card">
+                <div class="member-avatar">1</div>
+                <h3>팀원 1</h3>
+                <div class="role">팀장</div>
+                <p>팀을 이끌며 모두가 함께 성장할 수 있도록 노력합니다.</p>
+            </div>
+
+            <div class="member-card">
+                <div class="member-avatar">2</div>
+                <h3>팀원 2</h3>
+                <div class="role">부팀장</div>
+                <p>팀의 화합을 도모하고 프로젝트 진행을 돕습니다.</p>
+            </div>
+
+            <div class="member-card">
+                <div class="member-avatar">3</div>
+                <h3>팀원 3</h3>
+                <div class="role">팀원</div>
+                <p>창의적인 아이디어로 팀에 활력을 불어넣습니다.</p>
+            </div>
+
+            <div class="member-card">
+                <div class="member-avatar">4</div>
+                <h3>팀원 4</h3>
+                <div class="role">팀원</div>
+                <p>꼼꼼한 분석과 실행력으로 프로젝트를 완성합니다.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 사대 18조. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
